@@ -13,6 +13,19 @@ export function loadTodos() {
 }
 
 function loadTodosSuccess(todos) {
-  console.log(todos[0])
   return {type: types.LOAD_TODOS_SUCCESS, todos};
+}
+
+export function createTodo(todo) {
+  return dispatch => {
+    return axios.post(api + '/todo-items', todo).then(result => {
+      dispatch(createTodoSuccess(result.data));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+function createTodoSuccess(todo) {
+  return {type: types.CREATE_TODO_SUCCESS, todo};
 }
