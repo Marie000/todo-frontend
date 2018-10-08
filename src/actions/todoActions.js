@@ -13,5 +13,6 @@ export function loadTodos() {
 }
 
 function loadTodosSuccess(todos) {
+  console.log(todos[0])
   return {type: types.LOAD_TODOS_SUCCESS, todos};
 }
