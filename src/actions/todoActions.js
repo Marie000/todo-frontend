@@ -29,3 +29,17 @@ export function createTodo(todo) {
 function createTodoSuccess(todo) {
   return {type: types.CREATE_TODO_SUCCESS, todo};
 }
+
+export function updateTodo(id, update) {
+  return dispatch => {
+    return axios.patch(api + `/todo-items/${id}`, update).then(result => {
+      dispatch(updateTodoSuccess(result.data));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+function updateTodoSuccess(todo) {
+  return {type: types.UPDATE_TODO_SUCCESS, todo}
+}
