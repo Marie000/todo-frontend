@@ -1,6 +1,8 @@
 import React from 'react';
 import { Paper, FlatButton, TextField } from 'material-ui';
 import TodoTitle from './TodoTitle';
+import TodoDescription from './TodoDescription';
+import TodoStatus from './TodoStatus';
 
 const TodoView = (props) => {
   console.log(props)
@@ -13,10 +15,17 @@ const TodoView = (props) => {
         updateTodo={props.updateTodo}
       />
       {props.todo.status === 'done' ? 'done!' : ''}
-      <p>{props.todo.description}</p>
-      <FlatButton onClick={props.updateTodo.bind(this, props.todo._id, {status: 'done'})}>
-        Mark as done
-      </FlatButton>
+      <TodoDescription 
+        todo={props.todo}
+        toggleEditDescription={props.toggleEditDescription}
+        editDescription={props.editDescription}
+        updateTodo={props.updateTodo}
+      />
+      <TodoStatus 
+        todo={props.todo}
+        updateTodo={props.updateTodo}
+      />
+
     </Paper>
   )
 }

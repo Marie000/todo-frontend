@@ -7,14 +7,19 @@ class Todo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editTitle: false
+      editTitle: false,
+      editDescription: false
     }
     this.toggleEditTitle = this.toggleEditTitle.bind(this);
+    this.toggleEditDescription = this.toggleEditDescription.bind(this);
   }
 
   toggleEditTitle() {
-    console.log('toggle')
     this.setState({editTitle: !this.state.editTitle});
+  }
+
+  toggleEditDescription() {
+    this.setState({editDescription: !this.state.editDescription});
   }
 
   render() {
@@ -24,6 +29,8 @@ class Todo extends Component {
         updateTodo={this.props.updateTodo}
         toggleEditTitle={this.toggleEditTitle}
         editTitle={this.state.editTitle}
+        toggleEditDescription={this.toggleEditDescription}
+        editDescription={this.state.editDescription}
       />
     )
   }

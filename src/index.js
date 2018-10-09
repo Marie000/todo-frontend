@@ -4,6 +4,7 @@ import App from './components/App';
 import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
 import {loadTodos} from './actions/todoActions';
+import './index.css';
 
 const store = configureStore();
 

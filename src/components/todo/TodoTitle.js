@@ -33,7 +33,7 @@ class TodoTitle extends Component {
     } else {
       return (
         <div>
-          <h2>{this.props.todo.title}</h2>
+          <h2 class={"todo-title-" + this.props.todo.status}>{this.props.todo.title}</h2>
           <FlatButton onClick={this.props.toggleEditTitle.bind(this)}>Edit</FlatButton>
         </div>
       )
