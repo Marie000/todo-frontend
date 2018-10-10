@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatButton, TextField } from 'material-ui';
+import { RaisedButton, TextField } from 'material-ui';
 
 class TodoDescription extends Component {
   constructor(props) {
@@ -27,10 +27,11 @@ class TodoDescription extends Component {
   render() {
     let currentStatus = this.props.todo.status;
     return (
-      <div>
-        {currentStatus !== 'done' ? <FlatButton onClick={this.markAsDone}>Mark as done</FlatButton> : null}
-        {currentStatus !== 'in progress' ? <FlatButton onClick={this.startProgress}>Start Progress</FlatButton>: null}
-        {currentStatus !== 'archived' ? <FlatButton onClick={this.archive}>Archive</FlatButton> : null}
+      <div className="TodoStatus">
+        {currentStatus === 'pending' ? <RaisedButton onClick={this.startProgress} label="Start Progress" /> : null}
+        {currentStatus === 'pending' || currentStatus === 'in progress'
+          ? <RaisedButton onClick={this.markAsDone} label="Mark as done" /> : null}
+        {currentStatus !== 'archived' ? <RaisedButton onClick={this.archive} label="Archive" /> : null}
       </div>
     )
 

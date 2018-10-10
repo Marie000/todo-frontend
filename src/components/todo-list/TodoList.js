@@ -6,13 +6,19 @@ class TodoListPage extends Component {
   constructor() {
     super();
     this.state = {
-      displayArchived: false
+      displayArchived: false,
+      orderType: 'createdAt'
     };
     this.toggleArchived = this.toggleArchived.bind(this);
+    this.order = this.order.bind(this);
   }
 
   toggleArchived() {
     this.setState({displayArchived: !this.state.displayArchived});
+  }
+
+  order(type) {
+    this.setState({orderType: type})
   }
 
   render() {
@@ -22,6 +28,8 @@ class TodoListPage extends Component {
           todos={this.props.todos} 
           displayArchived={this.state.displayArchived}
           toggleArchived={this.toggleArchived}
+          order={this.order}
+          orderType={this.state.orderType}
         />
       )
     } else {

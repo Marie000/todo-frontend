@@ -1,20 +1,26 @@
 import React from 'react';
-import { Paper, FlatButton, TextField } from 'material-ui';
+import { Card } from 'material-ui';
 import TodoTitle from './TodoTitle';
 import TodoDescription from './TodoDescription';
 import TodoStatus from './TodoStatus';
+import TodoDateDue from './TodoDateDue';
 
 const TodoView = (props) => {
-  console.log(props)
   return (
-    <Paper>
+    <Card>
+      <div className="TodoView">
       <TodoTitle 
         todo={props.todo} 
         toggleEditTitle={props.toggleEditTitle}
         editTitle={props.editTitle}
         updateTodo={props.updateTodo}
       />
-      {props.todo.status === 'done' ? 'done!' : ''}
+      <TodoDateDue 
+        todo={props.todo}
+        toggleEditDateDue={props.toggleEditDateDue}
+        editDateDue={props.editDateDue}
+        updateTodo={props.updateTodo}
+      />
       <TodoDescription 
         todo={props.todo}
         toggleEditDescription={props.toggleEditDescription}
@@ -25,8 +31,9 @@ const TodoView = (props) => {
         todo={props.todo}
         updateTodo={props.updateTodo}
       />
+      </div>
 
-    </Paper>
+    </Card>
   )
 }
 

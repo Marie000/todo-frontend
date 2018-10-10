@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatButton, TextField } from 'material-ui';
+import { RaisedButton, TextField } from 'material-ui';
 
 class TodoTitle extends Component {
   constructor(props) {
@@ -27,14 +27,23 @@ class TodoTitle extends Component {
           <TextField hintText="title"
                      value={this.state.title}
                      onChange={this.handleChange}/>   
-          <FlatButton onClick={this.save}>Save</FlatButton>       
+          <RaisedButton onClick={this.save} label="Save" />      
         </div>
       )
     } else {
+      let status = this.props.todo.status;
       return (
         <div>
-          <h2 class={"todo-title-" + this.props.todo.status}>{this.props.todo.title}</h2>
-          <FlatButton onClick={this.props.toggleEditTitle.bind(this)}>Edit</FlatButton>
+          <h2 className={"todo-title todo-title-" + this.props.todo.status}>
+          {status === 'in progress' ? <i className="fas fa-spinner"></i> : null}
+          {status === 'done' ? <i className="fas fa-check"></i> : null}
+          {status === 'archived' ? <i className="fas fa-archive"></i> : null}
+          {this.props.todo.title + " "} 
+          <span className="in-progress">
+          {status === 'in progress' ? "in progress... " : null}
+          </span>
+          <RaisedButton onClick={this.props.toggleEditTitle.bind(this)} label="Edit" />
+          </h2>
         </div>
       )
     }

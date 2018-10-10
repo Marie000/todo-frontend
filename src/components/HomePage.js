@@ -7,9 +7,9 @@ class HomePage extends Component {
   render() {
     return (
       <div className="HomePage">
-        <h1>Hello!</h1>
-        <TodoList />
+        <h1>Todo Application Prototype</h1>
         <CreateTodo />
+        <TodoList />
       </div>
     );
   }

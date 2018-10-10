@@ -8,10 +8,12 @@ class Todo extends Component {
     super(props);
     this.state = {
       editTitle: false,
-      editDescription: false
+      editDescription: false,
+      editDateDue: false
     }
     this.toggleEditTitle = this.toggleEditTitle.bind(this);
     this.toggleEditDescription = this.toggleEditDescription.bind(this);
+    this.toggleEditDateDue = this.toggleEditDateDue.bind(this);
   }
 
   toggleEditTitle() {
@@ -22,6 +24,10 @@ class Todo extends Component {
     this.setState({editDescription: !this.state.editDescription});
   }
 
+  toggleEditDateDue() {
+    this.setState({editDateDue: !this.state.editDateDue});
+  }
+
   render() {
     return (
       <TodoView 
@@ -29,7 +35,9 @@ class Todo extends Component {
         updateTodo={this.props.updateTodo}
         toggleEditTitle={this.toggleEditTitle}
         editTitle={this.state.editTitle}
+        editDateDue={this.state.editDateDue}
         toggleEditDescription={this.toggleEditDescription}
+        toggleEditDateDue={this.toggleEditDateDue}
         editDescription={this.state.editDescription}
       />
     )

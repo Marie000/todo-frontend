@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextField, MenuItem, SelectField, FlatButton } from 'material-ui';
+import { TextField, RaisedButton, Card, CardTitle, CardText } from 'material-ui';
 
 class CreateTodoView extends Component {
   constructor(props) {
@@ -7,10 +7,10 @@ class CreateTodoView extends Component {
     this.state = {
       title: '',
       description: '',
-      status: 'pending'
+      status: 'pending',
+      dateDue: ''
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleStatus = this.handleStatus.bind(this);
     this.submit = this.submit.bind(this);
   }
 
@@ -20,46 +20,48 @@ class CreateTodoView extends Component {
     this.setState(change);
   } 
 
-  handleStatus(event, index, value) {
-    this.setState({status: value})
-  }
-
   submit() {
     this.props.createTodo(this.state);
     this.setState({
       title: '',
       description: '',
-      status: 'pending'
+      status: 'pending',
+      dateDue: ''
     })
   }
 
   render() {
     return (
       <div>
-        <h3> Create a Todo: </h3>
+        <Card expandable>
+        <CardTitle title="Create a Todo"
+                   actAsExpander
+                   showExpandableButton />
+        
+        <CardText expandable={true}>
         <form>
           <TextField hintText="title"
+                      fullWidth
                       value={this.state.title}
                       onChange={this.handleChange.bind(this, 'title')}/>
           <br />
           <TextField hintText="Description"
+                      fullWidth
                       value={this.state.description}
                       multiLine
                       rows={3}
                       onChange={this.handleChange.bind(this, 'description')}/>
           <br />
-            <SelectField floatingLabelText="Status"
-                          value={this.state.status}
-                          onChange={this.handleStatus} >
-            <MenuItem value="pending" primaryText="Pending" />
-            <MenuItem value="in progress" primaryText="In Progress" />
-            <MenuItem value="done" primaryText="done" />
-            <MenuItem value="archived" primaryText="archived" />
+          Due Date: 
+          <TextField type="Date"
+                  value={this.state.dateDue}
+                  onChange={this.handleChange.bind(this, 'dateDue')} />
 
-            </SelectField>
             <br />
-          <FlatButton onClick = {this.submit}>Submit</FlatButton>
+          <RaisedButton onClick = {this.submit} label="Submit" className="button" />
         </form>
+        </CardText>
+        </Card>
       </div>
     )
   }

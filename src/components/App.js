@@ -1,6 +1,6 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import HomePage from './HomePage'
+import { MuiThemeProvider } from 'material-ui/styles';
 
 class App extends React.Component {
   render() {

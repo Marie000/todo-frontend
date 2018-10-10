@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatButton, TextField } from 'material-ui';
+import { RaisedButton, TextField } from 'material-ui';
 
 class TodoDescription extends Component {
   constructor(props) {
@@ -29,14 +29,15 @@ class TodoDescription extends Component {
                       multiLine
                       rows={3}
                       onChange={this.handleChange}/> 
-          <FlatButton onClick={this.save}>Save</FlatButton>       
+          <RaisedButton onClick={this.save} label="Save" />      
         </div>
       )
     } else {
       return (
         <div>
+          <p><strong>Description:</strong></p>
           <p>{this.props.todo.description}</p>
-          <FlatButton onClick={this.props.toggleEditDescription.bind(this)}>Edit</FlatButton>
+          <RaisedButton onClick={this.props.toggleEditDescription.bind(this)} label="Edit Description" />
         </div>
       )
     }
