@@ -24,10 +24,10 @@ class TodoDateDue extends Component {
     if (this.props.editDateDue) {
       return (
         <div>
-          <TextField type="Date"
+          <TextField type='Date'
                   value={this.state.dateDue}
                   onChange={this.handleChange} />
-          <RaisedButton onClick={this.save} label="Save" />      
+          <RaisedButton onClick={this.save} label='Save' />      
         </div>
       )
     } else {
@@ -41,9 +41,9 @@ class TodoDateDue extends Component {
         <div>
           { this.props.todo.dateDue ? 
             <p><strong>Date Due:</strong> {date.toDateString()}</p> :
-            "Due date not set"
+            'Due date not set'
           }
-          <RaisedButton onClick={this.props.toggleEditDateDue.bind(this)} label="Edit Due Date" />
+          <RaisedButton onClick={this.props.toggleEditDateDue.bind(this)} label='Edit Due Date' />
         </div>
       )
     }

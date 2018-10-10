@@ -34,18 +34,18 @@ class CreateTodoView extends Component {
     return (
       <div>
         <Card expandable>
-        <CardTitle title="Create a Todo"
+        <CardTitle title='Create a Todo'
                    actAsExpander
                    showExpandableButton />
         
         <CardText expandable={true}>
         <form>
-          <TextField hintText="title"
+          <TextField hintText='title'
                       fullWidth
                       value={this.state.title}
                       onChange={this.handleChange.bind(this, 'title')}/>
           <br />
-          <TextField hintText="Description"
+          <TextField hintText='Description'
                       fullWidth
                       value={this.state.description}
                       multiLine
@@ -53,12 +53,12 @@ class CreateTodoView extends Component {
                       onChange={this.handleChange.bind(this, 'description')}/>
           <br />
           Due Date: 
-          <TextField type="Date"
+          <TextField type='Date'
                   value={this.state.dateDue}
                   onChange={this.handleChange.bind(this, 'dateDue')} />
 
             <br />
-          <RaisedButton onClick = {this.submit} label="Submit" className="button" />
+          <RaisedButton onClick = {this.submit} label='Submit' className='button' />
         </form>
         </CardText>
         </Card>

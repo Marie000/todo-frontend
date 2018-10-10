@@ -8,7 +8,7 @@ import TodoDateDue from './TodoDateDue';
 const TodoView = (props) => {
   return (
     <Card>
-      <div className="TodoView">
+      <div className='TodoView'>
       <TodoTitle 
         todo={props.todo} 
         toggleEditTitle={props.toggleEditTitle}

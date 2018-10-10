@@ -24,12 +24,12 @@ class TodoDescription extends Component {
     if (this.props.editDescription) {
       return (
         <div>
-          <TextField hintText="Description"
+          <TextField hintText='Description'
                       value={this.state.description}
                       multiLine
                       rows={3}
                       onChange={this.handleChange}/> 
-          <RaisedButton onClick={this.save} label="Save" />      
+          <RaisedButton onClick={this.save} label='Save' />      
         </div>
       )
     } else {
@@ -37,7 +37,7 @@ class TodoDescription extends Component {
         <div>
           <p><strong>Description:</strong></p>
           <p>{this.props.todo.description}</p>
-          <RaisedButton onClick={this.props.toggleEditDescription.bind(this)} label="Edit Description" />
+          <RaisedButton onClick={this.props.toggleEditDescription.bind(this)} label='Edit Description' />
         </div>
       )
     }
